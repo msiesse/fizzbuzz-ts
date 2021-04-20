@@ -2,12 +2,15 @@ import { expect } from 'chai';
 import { fizzbuzz } from '../fizzbuzz';
 
 describe('FizzBuzz number representation', () => {
-	it ('should return 1 when passing 1', () => {
-		expect(fizzbuzz(1, 1)).to.equal('1');
-	});
-
-	it ('should return 2 when passing 2', () => {
-		expect(fizzbuzz(2, 2)).to.equal('2');
+	describe('should return 1 or 2 when passing 1 or 2', () => {
+		[
+			{ number: 1, string: '1' },
+			{ number: 2, string: '2' }
+		].forEach(({ string, number }) => {
+			it (`should return ${string} when passing ${number}`, () => {
+				expect(fizzbuzz(number, number)).to.equal(string);
+			})
+		});
 	});
 
 	it ('should return FizzFizz when passing 3', () => {
